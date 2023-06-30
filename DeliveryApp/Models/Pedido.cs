@@ -19,9 +19,11 @@ namespace DeliveryApp.Models
         public Cliente Cliente { get; set; }
         public Producto Producto { get; set; }
 
+        [Display(Name = "Producto")]
         [ForeignKey("Producto")]
         public int IdProducto { get; set; }
 
+        [Display(Name = "Cliente")]
         [ForeignKey("Cliente")]
         public int IdCliente { get; set; }
     }
