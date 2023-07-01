@@ -50,7 +50,7 @@ namespace DeliveryApp.Controllers
         public IActionResult Create()
         {
             ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "Apellido");
-            ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
+            ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "Descripcion");
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace DeliveryApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "Apellido", pedido.IdCliente);
-            ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto", pedido.IdProducto);
+            ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "Descripcion", pedido.IdProducto);
             return View(pedido);
         }
 

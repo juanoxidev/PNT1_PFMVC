@@ -14,7 +14,7 @@ namespace DeliveryApp.Models
         public int IdProducto { get; set;}
         public string Descripcion { get; set;}
         public float Precio { get; set; }
-        public List<Pedido> Pedido { get; set; }
+      
 
     }
 }
