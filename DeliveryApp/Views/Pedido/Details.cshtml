@@ -26,7 +26,19 @@
             @Html.DisplayNameFor(model => model.Producto)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Producto.IdProducto)
+            @Html.DisplayFor(model => model.Producto.Descripcion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FormaEnvio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FormaEnvio)
         </dd>
     </dl>
 </div>

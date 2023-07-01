@@ -11,9 +11,11 @@ namespace DeliveryApp.Models
     { // definimos las propiedades / campos en sql server
         [Key] // primarykey using System.ComponentModel.DataAnnotations; 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // que se autoincremente el id
-        public int IdProducto { get; set;}
+        public int IdProducto { get; set; }
+
+        [Required]
+        [Display(Name = "Descripción")]
         public string Descripcion { get; set;}
-        public float Precio { get; set; }
       
 
     }

@@ -59,7 +59,7 @@ namespace DeliveryApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPedido,FechaPedido,IdProducto,IdCliente")] Pedido pedido)
+        public async Task<IActionResult> Create([Bind("IdPedido,FechaPedido,IdProducto,IdCliente,Precio,FormaEnvio")] Pedido pedido)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace DeliveryApp.Controllers
                 return NotFound();
             }
             ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "Apellido", pedido.IdCliente);
-            ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto", pedido.IdProducto);
+            ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "Descripcion", pedido.IdProducto);
             return View(pedido);
         }
 
@@ -95,7 +95,7 @@ namespace DeliveryApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPedido,FechaPedido,IdProducto,IdCliente")] Pedido pedido)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPedido,FechaPedido,IdProducto,IdCliente,Precio,FormaEnvio")] Pedido pedido)
         {
             if (id != pedido.IdPedido)
             {
@@ -123,7 +123,7 @@ namespace DeliveryApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "Apellido", pedido.IdCliente);
-            ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto", pedido.IdProducto);
+            ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "Descripcion", pedido.IdProducto);
             return View(pedido);
         }
 
