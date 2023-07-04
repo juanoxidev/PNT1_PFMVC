@@ -1,5 +1,5 @@
 # Documentación de la Aplicación de Delivery
-![UMLDelivery](./selecto-uml.jpg)
+![UMLDelivery](./selectoUML.png)
 
 
 ## Clase `Cliente`:
@@ -15,8 +15,6 @@
 
 ### Métodos:
 - `Cliente()`: constructor de la clase Cliente que recibe como parámetros los atributos necesarios para inicializar un objeto Cliente.
-- `agregarDomicilio()`: método que agrega un nuevo domicilio a la lista de domicilios del cliente.
-- `modificarDomicilio()`: método que modifica un domicilio existente del cliente.
 - `borrarCliente()`: método que permite eliminar el cliente.
 - `modificarCliente()`: método que permite modificar el cliente.
 - `verCliente()`: método que muestra los detalles del cliente seleccionado.
@@ -41,7 +39,7 @@
 
 ### Atributos:
 - `idPedido` (tipo: `int`): identificador único del producto.
-- `descripcion` (tipo: `string`): descripción del producto comercializado.
+- `descripcion` (tipo: `String`): descripción del producto comercializado.
 
 ### Métodos:
 - `Producto()`: constructor de la clase Producto que recibe como parámetros los atributos necesarios para inicializar un objeto Producto.
