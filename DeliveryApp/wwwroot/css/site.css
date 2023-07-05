@@ -21,35 +21,19 @@ body {
     height: 300px;
 }
 
-.navbar {
-    text-align: center;
-    background-color: #ad664d;
-}
 
 .btn-primary {
     background-color: #ad664d;
 }
 
 
-.navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    justify-content: space-between;
-    align-items: center;
-}
 
 a {
     text-decoration:none;
     color: black;
 }
 
-.navbar-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-}
+
 
 .secciones{
     display:flex;
@@ -61,3 +45,4 @@ a {
     text-align:center;
     margin-bottom: 3rem;
 }
+
