@@ -36,7 +36,7 @@ namespace DeliveryApp.Models
         [Range(0, 9999999)]
         public decimal Precio { get; set; }
         [Required(ErrorMessage = "Debe seleccionar una forma de envio")]
-        [Display(Name = "Forma de envió")]
+        [Display(Name = "Forma de envio")]
         public Envio FormaEnvio { get; set; }
     }
 }
