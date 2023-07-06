@@ -4,21 +4,15 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Detalles del producto</h1>
+<h3>Detalles del producto N° @Html.DisplayFor(model => model.IdProducto)</h3>
+<hr />
 
-<div>
-    <h4>Producto</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.IdProducto">Editar</a> |
-    <a asp-action="Index">Volver</a>
+<div class="info">
+    <div class="iteminfo">
+        <b><p> @Html.DisplayNameFor(model => model.Descripcion) :  </p> </b> <p class="ms-2"> @Html.DisplayFor(model => model.Descripcion) </p>
+    </div>
+    <div class="text-center">
+        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.IdProducto">Editar</a> |
+        <a  class="btn btn-primary" asp-action="Index">Volver</a>
+    </div>
 </div>

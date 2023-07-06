@@ -46,3 +46,14 @@ a {
     margin-bottom: 3rem;
 }
 
+.info{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+}
+
+.iteminfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
