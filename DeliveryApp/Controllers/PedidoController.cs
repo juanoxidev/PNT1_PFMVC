@@ -49,7 +49,7 @@ namespace DeliveryApp.Controllers
         // GET: Pedido/Create
         public IActionResult Create()
         {
-            ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "Apellido");
+            ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "Dni");
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "Descripcion");
             return View();
         }
@@ -67,7 +67,7 @@ namespace DeliveryApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "Apellido", pedido.IdCliente);
+            ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "Dni", pedido.IdCliente);
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "Descripcion", pedido.IdProducto);
             return View(pedido);
         }
@@ -85,7 +85,7 @@ namespace DeliveryApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "Apellido", pedido.IdCliente);
+            ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "Dni", pedido.IdCliente);
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "Descripcion", pedido.IdProducto);
             return View(pedido);
         }
@@ -122,7 +122,7 @@ namespace DeliveryApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "Apellido", pedido.IdCliente);
+            ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "Dni", pedido.IdCliente);
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "Descripcion", pedido.IdProducto);
             return View(pedido);
         }
