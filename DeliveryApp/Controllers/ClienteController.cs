@@ -58,9 +58,17 @@ namespace DeliveryApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(cliente);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var existingCliente = await _context.Clientes.FirstOrDefaultAsync(c => c.Dni == cliente.Dni);
+
+                if (existingCliente != null)
+                {
+                    // Cliente con el mismo DNI ya existe en la base de datos
+                    ModelState.AddModelError("Dni", "Ya existe un cliente con el mismo DNI.");
+                    return View(cliente);
+                }
+                    _context.Add(cliente);
+                    await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));                
             }
             return View(cliente);
         }
@@ -87,7 +95,7 @@ namespace DeliveryApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdCliente,Dni,Nombre,Apellido,Telefono,Email,Direccion")] Cliente cliente)
-        {
+        { 
             if (id != cliente.IdCliente)
             {
                 return NotFound();
@@ -95,6 +103,15 @@ namespace DeliveryApp.Controllers
 
             if (ModelState.IsValid)
             {
+                // Buscar cliente por DNI en la base de datos excluyendo el cliente actual
+                var existingCliente = await _context.Clientes.FirstOrDefaultAsync(c => c.Dni == cliente.Dni && c.IdCliente != cliente.IdCliente);
+
+                if (existingCliente != null)
+                {
+                    // Cliente con el mismo DNI ya existe en la base de datos
+                    ModelState.AddModelError("Dni", "Ya existe otro cliente con el mismo DNI.");
+                    return View(cliente);
+                }
                 try
                 {
                     _context.Update(cliente);

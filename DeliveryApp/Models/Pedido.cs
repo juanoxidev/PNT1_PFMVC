@@ -13,10 +13,10 @@ namespace DeliveryApp.Models
         [Key] // primarykey using System.ComponentModel.DataAnnotations; 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // que se autoincremente el id
         public int IdPedido { get; set; }
-        [Required(ErrorMessage ="Debe seleccionar una fecha")]
+        [Required(ErrorMessage = "Debe seleccionar una fecha")]
         [DataType(DataType.DateTime)]
-        [FechaActual(ErrorMessage = "La fecha del pedido debe ser igual o posterior a la fecha actual.")]
-        //[DisplayFormat(DataFormatString = "{0:dd/MM/yy}")]
+        [FechaActual(ErrorMessage = "La fecha del pedido debe ser igual o posterior a la fecha actual.")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Fecha del pedido")]
         public DateTime FechaPedido { get; set; }
 
@@ -33,9 +33,10 @@ namespace DeliveryApp.Models
         public int IdCliente { get; set; }
         [Required(ErrorMessage = "Debe ingresar un precio para el pedido")]
         [DataType(DataType.Currency, ErrorMessage ="Debe ingresar un precio para el pedido")]
-        [Range(0, 9999999)]
+        [Range(1, 9999999)]
         public decimal Precio { get; set; }
-        [Required(ErrorMessage = "Debe seleccionar una forma de envio")]
+        [Required(ErrorMessage = "Debe seleccionar una forma de envio" , AllowEmptyStrings = true)]
+        //[Required(AllowEmptyStrings = true)]
         [Display(Name = "Forma de envio")]
         public Envio FormaEnvio { get; set; }
     }

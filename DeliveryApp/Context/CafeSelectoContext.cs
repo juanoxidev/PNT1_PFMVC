@@ -19,6 +19,6 @@ namespace DeliveryApp.Context
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
 
-
+        
     }
 }
