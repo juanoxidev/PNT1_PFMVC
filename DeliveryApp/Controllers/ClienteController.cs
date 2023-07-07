@@ -44,7 +44,7 @@ namespace DeliveryApp.Controllers
         }
 
         // GET: Cliente/Create
-        public IActionResult Create()
+        public IActionResult Create() //recibe el formulario
         {
             return View();
         }
@@ -54,7 +54,7 @@ namespace DeliveryApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdCliente,Dni,Nombre,Apellido,Telefono,Email,Direccion")] Cliente cliente)
+        public async Task<IActionResult> Create([Bind("IdCliente,Dni,Nombre,Apellido,Telefono,Email,Direccion")] Cliente cliente) ////envia el formulario
         {
             if (ModelState.IsValid)
             {
@@ -101,8 +101,14 @@ namespace DeliveryApp.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) //En este código, se realiza una búsqueda en la base de datos utilizando el método FirstOrDefaultAsync para 
+            {                       //encontrar un cliente distinto al que se está editando pero con el mismo DNI. Si se encuentra un cliente con el
+                                    // mismo DNI, se agrega un error al modelo (ModelState) indicando que ya existe otro cliente con ese DNI y se devuelve 
+                                    //la vista con el cliente para mostrar el mensaje de error al usuario.
+
+                //Si no se encuentra otro cliente con el mismo DNI, se procede a actualizar los datos del cliente en la base de datos y se redirige al método Index para mostrar la lista actualizada de clientes.
+                //Recuerda que este código asume que estás utilizando Entity Framework y que Clientes es el DbSet correspondiente a la tabla de clientes en tu contexto de base de datos (_context).
+
                 // Buscar cliente por DNI en la base de datos excluyendo el cliente actual
                 var existingCliente = await _context.Clientes.FirstOrDefaultAsync(c => c.Dni == cliente.Dni && c.IdCliente != cliente.IdCliente);
 

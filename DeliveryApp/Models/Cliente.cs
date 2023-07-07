@@ -37,5 +37,7 @@ namespace DeliveryApp.Models
         [Required(ErrorMessage = "Debe ingresar una Dirección")]
         public string Direccion { get; set; }
 
+
+
     }
 }

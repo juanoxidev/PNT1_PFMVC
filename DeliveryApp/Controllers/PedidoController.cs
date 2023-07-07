@@ -55,8 +55,14 @@ namespace DeliveryApp.Controllers
         }
 
         // POST: Pedido/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to BIND to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        //El Bind le permite a tus Vistas usar la información del Modelo para generar por ejemplo un formulario para editar el Modelo, pero 
+        //aún más útil, le permite al método receptor en el Controlador tratar los valores posteados como un objeto del tipo del Modelo, en vez de 
+        //forzarte a leer cadenas del formulario.
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdPedido,FechaPedido,IdProducto,IdCliente,Precio,FormaEnvio")] Pedido pedido)
