@@ -22,7 +22,7 @@ namespace DeliveryApp.Controllers
         // GET: Cliente
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Clientes.ToListAsync());
+            return View(await _context.Clientes.ToListAsync()); //buscar tolistasync
         }
 
         // GET: Cliente/Details/5
@@ -54,7 +54,7 @@ namespace DeliveryApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdCliente,Dni,Nombre,Apellido,Telefono,Email,Direccion")] Cliente cliente) ////envia el formulario
+        public async Task<IActionResult> Create([Bind("IdCliente,Dni,Nombre,Apellido,Telefono,Email,Direccion, CodPostal")] Cliente cliente) ////envia el formulario
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace DeliveryApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdCliente,Dni,Nombre,Apellido,Telefono,Email,Direccion")] Cliente cliente)
+        public async Task<IActionResult> Edit(int id, [Bind("IdCliente,Dni,Nombre,Apellido,Telefono,Email,Direccion, CodPostal")] Cliente cliente)
         { 
             if (id != cliente.IdCliente)
             {

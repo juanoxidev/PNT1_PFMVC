@@ -36,6 +36,10 @@ namespace DeliveryApp.Models
         [Display(Name = "Dirección")]
         [Required(ErrorMessage = "Debe ingresar una Dirección")]
         public string Direccion { get; set; }
+        [Display(Name = "CodPostal")]
+        [CPValidation]
+        [Required(ErrorMessage = "Debe ingresar un codpostal")]
+        public string CodPostal { get; set; }
 
 
 

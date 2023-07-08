@@ -8,7 +8,6 @@ using System.Text.RegularExpressions;
 
 namespace DeliveryApp.Validators
 {
-
     public class DniValidationAttribute : RegularExpressionAttribute
     {
         private const string DniPattern = @"^\d{7,10}$"; //@"^\d{7,10}$" son expresiones regulares
